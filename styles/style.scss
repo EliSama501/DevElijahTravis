@@ -1,0 +1,345 @@
+/* Variables */
+$header1: 2.5rem;
+$header2: 4rem;
+$header3: 2.5rem;
+$header4: 2rem;
+$text: 2.5rem;
+$gradient: linear-gradient(left, #38d39f, #38a4d3);
+$background-color: #154353;
+$gray-text: #2c2c2c;
+
+@mixin flex($justfiy, $align, $direction) {
+  display: flex;
+  justify-content: $justfiy;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+/* Global CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-size: $header1;
+}
+
+li,
+button,
+label,
+input,
+p,
+a {
+  font-size: $text;
+}
+
+h2 {
+  font-size: $header2;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: $header3;
+}
+
+h4,
+h5 {
+  font-size: $header4;
+}
+
+a {
+  text-decoration: none;
+  color: $gray-text;
+}
+
+/* intro CSS */
+.main-head {
+  width: 95%;
+  margin: 0 0 0 auto;
+}
+
+nav {
+  @include flex(space-between, center, row);
+  min-height: 10vh;
+  width: 60%;
+  flex-wrap: wrap;
+}
+
+.logo {
+  @include flex(flex-start, center, row);
+  flex: 1 1 10rem;
+}
+
+.logo h1 {
+  margin: 2rem;
+}
+
+ul {
+  @include flex(space-around, center, row);
+  flex: 1 1 40rem;
+  list-style: none;
+}
+
+.intro {
+  min-height: 90vh;
+  width: 90%;
+  margin: auto;
+  flex-wrap: wrap;
+  @include flex(space-between, center, row);
+}
+
+.intro h2 {
+  font-size: 8rem;
+  padding-top: 2rem;
+  background: $gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.intro h3 {
+  font-size: 6rem;
+  padding: 2rem 0rem;
+}
+
+.intro p {
+  padding-top: 2rem;
+  color: $gray-text;
+}
+
+.splash {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 100%;
+  z-index: -1;
+}
+
+.intro-social {
+  margin-top: 4rem;
+}
+
+.intro-social a {
+  margin-right: 5rem;
+}
+
+.active {
+  background: $gray-text;
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 2rem;
+}
+
+.intro-text,
+.intro-images {
+  flex: 1 1 40rem;
+}
+
+/* Project CSS */
+
+.projects {
+  width: 90%;
+  margin: auto;
+  min-height: 90vh;
+  @include flex(space-between, center, row);
+  text-align: center;
+  flex-wrap: wrap;
+}
+h2 {
+  margin: 5rem;
+}
+
+.travelly,
+elena {
+  flex: 1 1 40rem;
+  @include flex(center, center, column);
+}
+
+/* Form CSS */
+
+.form-section {
+  min-height: 80vh;
+  @include flex(center, center, row);
+  margin-top: 3rem;
+
+  form {
+    padding: 3rem 10rem;
+    box-shadow: 0px 10px 10px rgba($color: #000000, $alpha: 0.2),
+      0px 20px 40px rgba($color: #000000, $alpha: 0.2);
+    @include flex(center, center, column);
+    border-radius: 2rem;
+
+    input,
+    textarea {
+      margin: 2rem;
+      &:focus {
+        outline: 2px solid black;
+      }
+    }
+    textarea {
+      font-family: "Montserrat", sans-serif;
+      font-size: 2rem;
+    }
+    button {
+      width: 100%;
+      padding: 2rem;
+      background: $background-color;
+      color: white;
+      &:focus {
+        background: rgb(51, 87, 107);
+      }
+    }
+  }
+}
+
+/* Footer CSS */
+
+Footer {
+  background: $background-color;
+  color: white;
+  min-height: 10vh;
+  padding: 0% 5%;
+  @include flex(felx-start, center, row);
+  ul {
+    flex: 1 1 40rem;
+    @include flex(space-around, center, row);
+  }
+  h4 {
+    flex: 1 1 40rem;
+  }
+}
+
+/* ANIMATION CSS */
+
+#plant-left {
+  animation: plant 1.5s ease infinite alternate;
+}
+
+#plant-right {
+  animation: plant 1.5s ease infinite alternate 0.5s;
+}
+
+@keyframes plant {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-30%);
+  }
+}
+
+/* #me {
+  animation: me 1s ease infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes me {
+  from {
+    transform: rotateZ(-1deg);
+  }
+  to {
+    transform: rotateZ(1deg);
+  }
+}
+*/
+
+#clock-arrow {
+  animation: clock 1.5s infinite linear;
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+
+@keyframes clock {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1332px) {
+  html {
+    font-size: 53%;
+  }
+
+  .splash {
+    display: none;
+  }
+
+  svg {
+    width: 80%;
+  }
+
+  nav {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 754px) {
+  html {
+    font-size: 45%;
+  }
+
+  svg {
+    height: 65%;
+  }
+
+  .main-head {
+    width: 100%;
+    margin: 2rem;
+  }
+  nav {
+    margin: 2rem;
+  }
+
+  nav ul {
+    flex: 1 1 60rem;
+    margin: 2rem 0rem;
+  }
+
+  .logo {
+    @include flex(center, center, column);
+    flex: 1 1 20rem;
+    margin-top: 2rem;
+  }
+  .intro-text {
+    margin-top: 5rem;
+    text-align: center;
+  }
+
+  .intro-images {
+    text-align: center;
+  }
+
+  .intro-social {
+    @include flex(center, center, row);
+  }
+
+  a {
+    margin: 2rem;
+  }
+
+  .travelly,
+  .elena img {
+    width: 100%;
+    height: 100%;
+  }
+
+  form {
+    width: 100%;
+    padding: 0;
+  }
+}
